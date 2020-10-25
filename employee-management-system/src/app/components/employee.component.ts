@@ -63,8 +63,7 @@ export class EmployeeComponent{
   
   
   public employeeId:any;
-  // public tittle:any;
-  // public msg:any;
+  
   
   delEmp(empId){
     
