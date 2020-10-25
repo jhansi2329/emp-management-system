@@ -1,0 +1,295 @@
+1) install MongoDB
+
+    => MongoDB is NoSQL database   (won't support queries (sql))
+
+    => MongoDB is JSON Based database.
+
+    => MongoDB Supports only JSON Objects.
+
+    => MongoDB database is light weight database.
+
+    => MongoDB database follows "mongodb" protocol.
+
+    => MongoDB by default running on port no. 27017
+
+Terminology
+===========
+
+SQL                                         NoSQL
+========================================================
+
+tables                                      collection
+
+record(row)                                 object
+
+database                                    database
+
+=========================================================
+
+
+download mongodb database by visiting website
+
+website : https://www.mongodb.com/dr/fastdl.mongodb.org/windows/mongodb-windows-x86_64-4.4.1-signed.msi/download
+
+file    : mongodb-windows-x86_64-4.4.1-signed.msi
+
+
+create the directory to maintain backup
+
+> c:/data/db
+
+    - above directory structure to maintain backup
+
+set the path environmental variable
+
+    > path = C:\Program Files\MongoDB\Server\4.2\bin
+
+MongoDB Queries / Commnands
+===========================
+
+1) mongod
+
+    - "mongod" commnad used to start the "mongo server".
+    
+    -  "mongo server" by default running on port no.27017
+
+    - "mongodb" follows the "mongodb" protocol.
+
+
+2) mongo
+
+    - mongo command used to connect to server.
+
+
+
+
+3) use miniprojectdb;
+
+    - automatically "miniprojectdb" database will create and switches also.
+
+4) db.createCollection("employees"); 
+
+    - automatically "employees" collection will create.
+
+5) db.employees.insert( {........} );
+
+    - automatically we can insert the record into employees collection.
+
+6) db.employees.find();
+
+    - automatically we can fetch the data from "employees" collection.
+
+7) show dbs;
+
+    - it will show available databases.
+
+8) show collections;
+
+    - it will show available collections.
+
+9) db.dropDatabase();
+
+    - automatically we can drop current database.
+
+***********************************************************************
+host     :    localhost ( / heroku / aws )
+
+port     :    27017
+
+protocol  : mongodb
+
+database  : miniprojectdb
+
+collection  : employees
+
+             (Name
+             Age
+             empId
+             Salary
+             Department
+             DOB
+             Gender
+             languages)
+*************************************************************************
+
+Server Implementation
+=====================
+1) create the directory
+
+    Ex.
+        server
+
+2) switch to server directory
+
+    > cd server
+
+3) download node modules by using "yarn" or "npm".
+
+    => express
+
+        - express module used to develop the rest apis.
+
+                Ex.
+                    GET
+                    POST
+                    PUT
+                    DELETE
+                    HEAD
+
+    => mongodb@2.2.32
+
+        - mongodb@2.2.32 module used to connect to mongodb database.
+
+    => cors
+
+        - cors module used to enable the ports communication.
+
+    => body-parser
+
+            - body-parser module used to read the payload.
+
+
+    > yarn add express mongodb@2.2.32 cors body-parser --save
+
+
+4) develop the rest services by using NodeJS (ExpressJS)
+
+*******************************************************
+server
+     employee
+        getAllEmployees.js   (GET)
+
+     addEmployee
+        addEmployee.js       (POST)
+
+     updateEmployee
+        updateEmployee.js    (PUT)
+
+     deleteEmployee
+        deleteEmployee.js    (DELETE)
+
+     server.js
+******************************************************
+
+5) start the servers
+
+    Terminal-1
+    ==========
+    > mongod
+
+    Terminal-2
+    ==========
+    > mongo
+
+    Terminal-3
+    ==========
+    > node server
+
+6) test the rest apis by using Postman
+
+    => http://localhost:8080/fetch  (GET)
+
+    => http://localhost:8080/insert   (POST)
+
+    => http://localhost:8080/update    (PUT)
+
+    => http://localhost:8080/delete    (DELETE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
