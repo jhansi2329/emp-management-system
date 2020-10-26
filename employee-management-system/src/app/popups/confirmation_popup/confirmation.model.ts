@@ -11,15 +11,17 @@ import {ConfirmationService} from  '../confirmation.service';
   export class ConfirmationModelComponent{
     public title:String;
     public msg:String;
+    public empId:any;
     public popData:any;
     constructor(public dialogRef:MatDialogRef<ConfirmationModelComponent>,
                 public sharedService:ConfirmationService){
       this.popData=sharedService.getMsg();
       this.title=this.popData.tittle;
       this.msg=this.popData.message;
-
+      this.empId=this.popData.employeeId;
     }
-    delEmp(event:any){
+    delEmp(event:Event){
+     // console.log(event);
       this.sharedService.sendClickEvent(event);
     }
     onNoClick(){

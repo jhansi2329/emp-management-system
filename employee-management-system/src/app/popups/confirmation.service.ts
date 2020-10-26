@@ -7,21 +7,21 @@ import {Observable,ReplaySubject,Subject} from 'rxjs';
 export class ConfirmationService {
   public  subject = new Subject<any>();
   
-  public empId:any;
+  //public empId:any;
   // public title:string;
   // public msg:any;
   public popUpData = {};
 
 
-  sendClickEvent(event:any){
+  sendClickEvent(event:Event){
       this.subject.next(event);
           
   }
   public getClickEvent():Observable<any>{
     return this.subject.asObservable();
   }
-  setTitleMsg(tittle,msg){
-    this.popUpData = {tittle:tittle,message:msg};
+  setTitleMsg(tittle,msg,empId){
+    this.popUpData = {tittle:tittle,message:msg,employeeId:empId};
     console.log(this.popUpData);
     //this.subject.next(this.popUpData);
   }
