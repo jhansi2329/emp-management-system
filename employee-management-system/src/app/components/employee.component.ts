@@ -51,10 +51,14 @@ export class EmployeeComponent{
       
       
     },errHandling);
-    this.clickEventSubscription=this.sharedService.getClickEvent().subscribe((event)=>{
-          if(event){
-              this.deleteEmp();
-          }
+    this.clickEventSubscription=this.sharedService.getClickEvent().subscribe((event:Event)=>{
+      // console.log((event.target as HTMLButtonElement).value);
+      //     if((event.target as HTMLButtonElement).value=="delRecord"){
+      //         this.deleteEmp();
+      //     }
+      if(event){
+        this.deleteEmp();
+      }
                
        });
       
@@ -68,7 +72,7 @@ export class EmployeeComponent{
   delEmp(empId){
     
     this.employeeId=empId;
-    this.sharedService.setTitleMsg("Delete!!!","Do You Want To Delete?"+" "+this.employeeId);
+    this.sharedService.setTitleMsg("Delete!!!","Do You Want To Delete?",this.employeeId);
     let dialogRef= this.dialog.open(ConfirmationModelComponent);
     
     // dialogRef.afterClosed().subscribe((result)=>{
