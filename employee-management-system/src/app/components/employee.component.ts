@@ -70,7 +70,7 @@ export class EmployeeComponent{
     this.employeeId=empId;
     this.sharedService.setTitleMsg("Delete!!!","Do You Want To Delete?"+" "+this.employeeId);
     let dialogRef= this.dialog.open(ConfirmationModelComponent);
-    //thia function to call directly
+    
     // dialogRef.afterClosed().subscribe((result)=>{
     //   if(result){
     //     //this.deleteEmp();
