@@ -21,8 +21,7 @@ import {ConfirmationService} from  '../confirmation.service';
       this.empId=this.popData.employeeId;
     }
     delEmp(event:Event){
-     // console.log(event);
-      this.sharedService.sendClickEvent(event);
+        this.sharedService.sendClickEvent(event);
     }
     onNoClick(){
       this.dialogRef.close();
