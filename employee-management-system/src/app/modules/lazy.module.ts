@@ -9,16 +9,21 @@ import { UpdateEmployeeService } from '../services/updateemployee.service';
 import { DeleteEmployeeService } from '../services/deleteEmployee.service';
 import { RouterModule } from '@angular/router';
 import {NgHttpLoaderModule} from "ng-http-loader";
+import {AddEmployeeForm} from "../components/addemployeeform.component";
 import {ConfirmationModelComponent} from "../popups/confirmation_popup/confirmation.model";
 import { ToastrModule } from 'ngx-toastr';
+import { from } from 'rxjs';
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [EmployeeComponent,ConfirmationModelComponent],
+  declarations: [EmployeeComponent,ConfirmationModelComponent,AddEmployeeForm],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgHttpLoaderModule.forRoot(),
     RouterModule.forChild([{path:"",component:EmployeeComponent},
                             {path:"/xyz",component:ConfirmationModelComponent}])

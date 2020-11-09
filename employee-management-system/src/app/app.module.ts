@@ -11,6 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     lazyRouts,
     NgHttpLoaderModule.forRoot(),
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
+    
     ],
   providers: [],
   bootstrap: [AppComponent]

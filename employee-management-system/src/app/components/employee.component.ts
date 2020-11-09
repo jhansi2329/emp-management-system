@@ -25,7 +25,7 @@ export class EmployeeComponent{
   public records:any;
   public unSub:any;
   public empId:any;
-
+  
  // @ViewChild(ConfirmationModelComponent,{static:true}) test:ConfirmationModelComponent;
   
 
@@ -51,18 +51,25 @@ export class EmployeeComponent{
       
       
     },errHandling);
-    this.clickEventSubscription=this.sharedService.getClickEvent().subscribe((event:Event)=>{
-      // console.log((event.target as HTMLButtonElement).value);
-      //     if((event.target as HTMLButtonElement).value=="delRecord"){
-      //         this.deleteEmp();
-      //     }
-      if(event){
-        this.deleteEmp();
-      }
+    // this.clickEventSubscription=this.sharedService.getClickEvent().subscribe((event:Event)=>{
+    //   // console.log((event.target as HTMLButtonElement).value);
+    //   //     if((event.target as HTMLButtonElement).value=="delRecord"){
+    //   //         this.deleteEmp();
+    //   //     }
+    //   // // if(event){
+    //   // //   this.deleteEmp();
+    //   // // }
                
-       });
+    //    });
       
-       
+    this.clickEventSubscription=this.sharedService.getClickEvent().subscribe((data)=>{
+        console.log("In employee Subscription");
+        if(data){
+          this.registerEmp(data);
+        }else{
+          this.deleteEmp();
+        }
+    }) ;
   }
   
   
@@ -77,10 +84,19 @@ export class EmployeeComponent{
     
     // dialogRef.afterClosed().subscribe((result)=>{
     //   if(result){
-    //     //this.deleteEmp();
+    //     this.deleteEmp();
     //   }
     // })
          
+   }
+   registerEmp(data){
+    this.addEmployee.getEmployees(data).subscribe((posRes)=>{
+      console.log(posRes);
+      if(posRes.insert === "success"){
+          this.records.push(posRes.insertedRec);
+          this.dataSource = new MatTableDataSource(this.records);
+      }
+   },errHandling);
    }
    deleteEmp(){
      console.log("In deleteEmp"+this.employeeId);
