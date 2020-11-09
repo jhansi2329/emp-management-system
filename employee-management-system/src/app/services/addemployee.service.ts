@@ -16,7 +16,9 @@ export class AddEmployeeService{
     constructor(public http:HttpClient){}
 
     public getEmployees(data:any):Observable<any>{
-        return this.http.post(BASE_URL+"/insert",data);
+        
+       // return this.http.post(BASE_URL+"insert",data);
+        return  this.http.post(BASE_URL+"insert",data);
     }
 
 };

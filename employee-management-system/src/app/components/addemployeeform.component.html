@@ -1,0 +1,121 @@
+<div style="margin:100px;">
+<form [formGroup]="employeeDetails" (ngSubmit)="register(employeeDetails.value)">
+    <table>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="Name" required placeholder="Enter Employee Name">
+                    <mat-hint align="end">enter name</mat-hint>
+                    <mat-error *ngIf="employeeDetails.get('Name').hasError('required')">
+                        **** This field is required ****
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Age</mat-label>
+                    <input matInput formControlName="Age" required placeholder="Enter Age">
+                    <mat-hint align="end">enter Age</mat-hint>
+                    <mat-error *ngIf="employeeDetails.get('Age').hasError('required')">
+                        **** can't left blank ****
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <!-- <td>
+                <mat-form-field>
+                <mat-label>empId</mat-label>
+                <input matInput placeholder="Enter empId" formControlName="empId"  required>
+                <mat-hint align="end">Employee Id</mat-hint>
+                <mat-error *ngIf="employeeDetails.get('empId').hasError('required')">
+                    ***This field is required**
+                </mat-error>
+                <mat-error *ngIf="employeeDetails.get('empId').hasError('minlength')">
+                    ***minimum 3 characters required**
+                </mat-error>
+                <mat-error *ngIf="employeeDetails.get('empId').hasError('maxlength')">
+                    ***maximum 6 characters required**
+                </mat-error>
+                </mat-form-field>       
+            </td> -->
+            <td>
+                <mat-form-field>
+                    <mat-label>Salary</mat-label>
+                    <input matInput formControlName="Salary" required placeholder="Enter Salary">
+                    <mat-hint align="end">enter salary</mat-hint>
+                    <mat-error *ngIf="employeeDetails.get('Salary').hasError('required')">
+                        **** can't left blank ****
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                   <mat-label>Department</mat-label>
+                   <mat-select formControlName="Department">
+                      <mat-option>--select department--</mat-option>
+                      <mat-option value="training">Training</mat-option>
+                      <mat-option value="hr">HR</mat-option>
+                      <mat-option value="finance">Finance</mat-option>
+                      <mat-option value="r&d">R&D</mat-option>
+                   </mat-select>
+                   <mat-hint align="end">select department</mat-hint>
+                   <mat-error *ngIf="employeeDetails.get('Department').hasError('required')">
+                        **** can't left blank ****
+                   </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="DOB"
+                      (dateChange)="date($event)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    
+                    <mat-error *ngIf="employeeDetails.get('DOB').hasError('required')">
+                          **** can't left blank ****
+                    </mat-error>
+                    <mat-hint align="end">select dob</mat-hint>
+                </mat-form-field>
+                
+              </td>
+            </tr>  
+            <tr>  
+              <td> 
+                <div> 
+                <mat-label style="margin-right: 10px;">Gender:</mat-label>
+                <mat-radio-group formControlName="Gender">
+                <mat-radio-button value="male" style="margin-right: 10px;" >Male</mat-radio-button>
+                <mat-radio-button value="female" >Female</mat-radio-button>
+               </mat-radio-group>
+               
+               <mat-error *ngIf="employeeDetails.get('Gender').hasError('required')">
+                    **** select gender ****
+               </mat-error>
+               </div>
+          </td>
+            <td>
+                <mat-form-field class="multiple-items">
+                  <mat-label>languages</mat-label>
+                  <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let language of Languages" [selectable]="selectable" [removable]="removable"
+                      (removed)="remove(language)">
+                      {{language}}
+                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="Add Languages" [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event)" style="width: 600px;"
+                      matInput>
+                  </mat-chip-list>
+                  <mat-hint align="end">enter languages</mat-hint>
+                </mat-form-field>
+            </td>
+            <td>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!employeeDetails.valid">Insert</button>
+            </td>
+         </tr>   
+    </table>
+ </form>
+
+
+ 

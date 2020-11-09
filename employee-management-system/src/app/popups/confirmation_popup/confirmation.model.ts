@@ -20,9 +20,8 @@ import {ConfirmationService} from  '../confirmation.service';
       this.msg=this.popData.message;
       this.empId=this.popData.employeeId;
     }
-    delEmp(event:Event){
-     // console.log(event);
-      this.sharedService.sendClickEvent(event);
+    delEmp(){
+        this.sharedService.sendClickEvent();
     }
     onNoClick(){
       this.dialogRef.close();

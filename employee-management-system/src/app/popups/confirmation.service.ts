@@ -13,9 +13,12 @@ export class ConfirmationService {
   public popUpData = {};
 
 
-  sendClickEvent(event:Event){
-      this.subject.next(event);
-          
+  sendClickEvent(){
+      this.subject.next();
+   
+  }
+  sendData(data:any){
+      this.subject.next(data);
   }
   public getClickEvent():Observable<any>{
     return this.subject.asObservable();
