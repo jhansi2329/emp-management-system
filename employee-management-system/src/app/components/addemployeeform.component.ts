@@ -25,7 +25,7 @@ import{AddEmployeeService} from '../services/addemployee.service';
                 public sharedService:ConfirmationService,
                 public addEmp:AddEmployeeService){
       this.employeeDetails = this.fb.group({
-        empId:['',[Validators.required,Validators.minLength(3),Validators.maxLength(6)]],
+       // empId:['',[Validators.required,Validators.minLength(3),Validators.maxLength(6)]],
         Name : ['',Validators.required],
         Age:['',Validators.required],
         Salary:['',Validators.required],
