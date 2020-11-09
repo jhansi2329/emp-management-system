@@ -7,11 +7,7 @@ import { EmployeeComponent } from './components/employee.component';
 
 import { lazyRouts } from './routes/app.routes';
 import { NgHttpLoaderModule } from "ng-http-loader";
-import { ToastrModule } from 'ngx-toastr';
-
-
-
-
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
